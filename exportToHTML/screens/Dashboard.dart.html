@@ -1,0 +1,328 @@
+<html>
+<head>
+<title>Dashboard.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Dashboard.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'package:flutter/material.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:adobe_xd/pinned.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:flutter_svg/flutter_svg.dart'</span><span class="s2">;</span>
+
+<span class="s2">class </span><span class="s0">Dashboard </span><span class="s2">extends </span><span class="s0">StatelessWidget {</span>
+  <span class="s0">Dashboard({</span>
+    <span class="s0">Key key</span><span class="s2">,</span>
+  <span class="s0">}) : </span><span class="s2">super</span><span class="s0">(key: key)</span><span class="s2">;</span>
+  <span class="s0">@override</span>
+  <span class="s0">Widget build(BuildContext context) {</span>
+    <span class="s2">return </span><span class="s0">Scaffold(</span>
+      <span class="s0">backgroundColor: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0xffffffff</span><span class="s0">)</span><span class="s2">,</span>
+      <span class="s0">body: Stack(</span>
+        <span class="s0">children: &lt;Widget&gt;[</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">5.0</span><span class="s2">, </span><span class="s0">start: </span><span class="s3">29.7</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">11.3</span><span class="s2">, </span><span class="s0">start: </span><span class="s3">64.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_ivpduo</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Container()</span><span class="s2">,</span>
+          <span class="s0">Container()</span><span class="s2">,</span>
+          <span class="s0">Container()</span><span class="s2">,</span>
+          <span class="s0">Container()</span><span class="s2">,</span>
+          <span class="s0">Container()</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(start: </span><span class="s3">98.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">24.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">55.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.354</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SingleChildScrollView(</span>
+                <span class="s0">child: Text(</span>
+                  <span class="s1">'Book appoinment with Jared'</span><span class="s2">,</span>
+                  <span class="s0">style: TextStyle(</span>
+                    <span class="s0">fontFamily: </span><span class="s1">'Avenir LT Std'</span><span class="s2">,</span>
+                    <span class="s0">fontSize: </span><span class="s3">21</span><span class="s2">,</span>
+                    <span class="s0">color: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0xff111111</span><span class="s0">)</span><span class="s2">,</span>
+                    <span class="s0">letterSpacing: </span><span class="s3">0.315</span><span class="s2">,</span>
+                    <span class="s0">fontWeight: FontWeight.w500</span><span class="s2">,</span>
+                    <span class="s0">height: </span><span class="s3">1.4285714285714286</span><span class="s2">,</span>
+                  <span class="s0">)</span><span class="s2">,</span>
+                  <span class="s0">textHeightBehavior:</span>
+                  <span class="s0">TextHeightBehavior(applyHeightToFirstAscent: </span><span class="s2">false</span><span class="s0">)</span><span class="s2">,</span>
+                  <span class="s0">textAlign: TextAlign.left</span><span class="s2">,</span>
+                <span class="s0">))</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(start: </span><span class="s3">98.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">24.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">59.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.4688</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: Text(</span>
+              <span class="s1">'Upload today shot on Dribbble '</span><span class="s2">,</span>
+              <span class="s0">style: TextStyle(</span>
+                <span class="s0">fontFamily: </span><span class="s1">'Avenir LT Std'</span><span class="s2">,</span>
+                <span class="s0">fontSize: </span><span class="s3">21</span><span class="s2">,</span>
+                <span class="s0">color: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0xff111111</span><span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">letterSpacing: </span><span class="s3">0.315</span><span class="s2">,</span>
+                <span class="s0">fontWeight: FontWeight.w500</span><span class="s2">,</span>
+                <span class="s0">height: </span><span class="s3">1.4285714285714286</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textHeightBehavior:</span>
+              <span class="s0">TextHeightBehavior(applyHeightToFirstAscent: </span><span class="s2">false</span><span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textAlign: TextAlign.left</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">258.3</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">40.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.3471</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_psdxpl</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">258.3</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">35.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.4494</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_achswn</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">258.3</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">35.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.5604</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_2sta7h</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">258.3</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">35.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.6702</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_xctp8x</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">258.3</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">35.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.7787</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_n8tcof</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">258.3</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">35.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">91.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_sf337p</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">129.3</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.3306</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.4852</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_jwagi0</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">129.3</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.3306</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.5962</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_ly6vt8</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">129.3</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.3306</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.7059</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_k7dgcu</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">129.3</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.3306</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">150.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_enu64u</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">129.3</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.3306</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">62.5</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_pdbg6c</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">86.4</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.2641</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">1.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.3829</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: SvgPicture.string(</span>
+              <span class="s0">_svg_n6misq</span><span class="s2">,</span>
+              <span class="s0">allowDrawingOutsideViewBox: </span><span class="s2">true,</span>
+              <span class="s0">fit: BoxFit.fill</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(start: </span><span class="s3">98.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">24.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">58.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.5862</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: Text(</span>
+              <span class="s1">'Complete the Elephant Illustration'</span><span class="s2">,</span>
+              <span class="s0">style: TextStyle(</span>
+                <span class="s0">fontFamily: </span><span class="s1">'Avenir LT Std'</span><span class="s2">,</span>
+                <span class="s0">fontSize: </span><span class="s3">21</span><span class="s2">,</span>
+                <span class="s0">color: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0xff111111</span><span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">letterSpacing: </span><span class="s3">0.315</span><span class="s2">,</span>
+                <span class="s0">fontWeight: FontWeight.w500</span><span class="s2">,</span>
+                <span class="s0">height: </span><span class="s3">1.4285714285714286</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textHeightBehavior:</span>
+              <span class="s0">TextHeightBehavior(applyHeightToFirstAscent: </span><span class="s2">false</span><span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textAlign: TextAlign.left</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(start: </span><span class="s3">98.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">24.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">58.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.7016</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: Text(</span>
+              <span class="s1">'Buy Cake for Clair\'s Bithday'</span><span class="s2">,</span>
+              <span class="s0">style: TextStyle(</span>
+                <span class="s0">fontFamily: </span><span class="s1">'Avenir LT Std'</span><span class="s2">,</span>
+                <span class="s0">fontSize: </span><span class="s3">21</span><span class="s2">,</span>
+                <span class="s0">color: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0xff111111</span><span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">letterSpacing: </span><span class="s3">0.315</span><span class="s2">,</span>
+                <span class="s0">fontWeight: FontWeight.w500</span><span class="s2">,</span>
+                <span class="s0">height: </span><span class="s3">1.4285714285714286</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textHeightBehavior:</span>
+              <span class="s0">TextHeightBehavior(applyHeightToFirstAscent: </span><span class="s2">false</span><span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textAlign: TextAlign.left</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(start: </span><span class="s3">98.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">24.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">58.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.8183</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: Text(</span>
+              <span class="s1">'Attend UX Conference with Jared'</span><span class="s2">,</span>
+              <span class="s0">style: TextStyle(</span>
+                <span class="s0">fontFamily: </span><span class="s1">'Avenir LT Std'</span><span class="s2">,</span>
+                <span class="s0">fontSize: </span><span class="s3">21</span><span class="s2">,</span>
+                <span class="s0">color: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0xff111111</span><span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">letterSpacing: </span><span class="s3">0.315</span><span class="s2">,</span>
+                <span class="s0">fontWeight: FontWeight.w500</span><span class="s2">,</span>
+                <span class="s0">height: </span><span class="s3">1.4285714285714286</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textHeightBehavior:</span>
+              <span class="s0">TextHeightBehavior(applyHeightToFirstAscent: </span><span class="s2">false</span><span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textAlign: TextAlign.left</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(start: </span><span class="s3">98.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">24.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">58.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">49.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: Text(</span>
+              <span class="s1">'Attend UX Conference with Jared'</span><span class="s2">,</span>
+              <span class="s0">style: TextStyle(</span>
+                <span class="s0">fontFamily: </span><span class="s1">'Avenir LT Std'</span><span class="s2">,</span>
+                <span class="s0">fontSize: </span><span class="s3">21</span><span class="s2">,</span>
+                <span class="s0">color: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0xff111111</span><span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">letterSpacing: </span><span class="s3">0.315</span><span class="s2">,</span>
+                <span class="s0">fontWeight: FontWeight.w500</span><span class="s2">,</span>
+                <span class="s0">height: </span><span class="s3">1.4285714285714286</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textHeightBehavior:</span>
+              <span class="s0">TextHeightBehavior(applyHeightToFirstAscent: </span><span class="s2">false</span><span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textAlign: TextAlign.left</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">53.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">33.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">16.0</span><span class="s2">, </span><span class="s0">start: </span><span class="s3">145.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: Text(</span>
+              <span class="s1">'MAY 2019'</span><span class="s2">,</span>
+              <span class="s0">style: TextStyle(</span>
+                <span class="s0">fontFamily: </span><span class="s1">'Avenir LT Std'</span><span class="s2">,</span>
+                <span class="s0">fontSize: </span><span class="s3">12</span><span class="s2">,</span>
+                <span class="s0">color: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0x4f000000</span><span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">fontWeight: FontWeight.w900</span><span class="s2">,</span>
+                <span class="s0">height: </span><span class="s3">3.4166666666666665</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textHeightBehavior:</span>
+              <span class="s0">TextHeightBehavior(applyHeightToFirstAscent: </span><span class="s2">false</span><span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">textAlign: TextAlign.left</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pinned.fromPins(</span>
+            <span class="s0">Pin(size: </span><span class="s3">302.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">0.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">Pin(size: </span><span class="s3">186.0</span><span class="s2">, </span><span class="s0">end: </span><span class="s3">0.0</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: Container(</span>
+              <span class="s0">decoration: BoxDecoration(</span>
+                <span class="s0">gradient: LinearGradient(</span>
+                  <span class="s0">begin: Alignment(</span><span class="s3">0.0</span><span class="s2">, </span><span class="s0">-</span><span class="s3">1.0</span><span class="s0">)</span><span class="s2">,</span>
+                  <span class="s0">end: Alignment(</span><span class="s3">0.0</span><span class="s2">, </span><span class="s3">0.54</span><span class="s0">)</span><span class="s2">,</span>
+                  <span class="s0">colors: [</span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0x00ffffff</span><span class="s0">)</span><span class="s2">, const </span><span class="s0">Color(</span><span class="s3">0xffffffff</span><span class="s0">)]</span><span class="s2">,</span>
+                  <span class="s0">stops: [</span><span class="s3">0.0</span><span class="s2">, </span><span class="s3">1.0</span><span class="s0">]</span><span class="s2">,</span>
+                <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+        <span class="s0">]</span><span class="s2">,</span>
+      <span class="s0">)</span><span class="s2">,</span>
+    <span class="s0">)</span><span class="s2">;</span>
+  <span class="s0">}</span>
+<span class="s0">}</span>
+
+<span class="s2">const </span><span class="s0">String _svg_ivpduo =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;29.7 64.5 5.0 11.3&quot; &gt;&lt;path transform=&quot;translate(3297.5, 622.63)&quot; d=&quot;M -3262.801513671875 -558.1217041015625 L -3267.806884765625 -552.2821655273438 L -3262.801513671875 -546.8597412109375&quot; fill=&quot;none&quot; stroke=&quot;#323232&quot; stroke-width=&quot;3&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_psdxpl =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;76.2 281.5 258.3 1.0&quot; &gt;&lt;path transform=&quot;translate(76.23, 281.5)&quot; d=&quot;M 0 0 L 258.2711791992188 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_achswn =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 364.5 258.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 364.5)&quot; d=&quot;M 0 0 L 258.2711791992188 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_2sta7h =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 454.5 258.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 454.5)&quot; d=&quot;M 0 0 L 258.2711791992188 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_xctp8x =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 543.5 258.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 543.5)&quot; d=&quot;M 0 0 L 258.2711791992188 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_n8tcof =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 631.5 258.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 631.5)&quot; d=&quot;M 0 0 L 258.2711791992188 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_sf337p =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 719.5 258.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 719.5)&quot; d=&quot;M 0 0 L 258.2711791992188 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_jwagi0 =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 393.5 129.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 393.5)&quot; d=&quot;M 0 0 L 129.271240234375 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_ly6vt8 =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 483.5 129.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 483.5)&quot; d=&quot;M 0 0 L 129.271240234375 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_k7dgcu =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 572.5 129.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 572.5)&quot; d=&quot;M 0 0 L 129.271240234375 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_enu64u =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 660.5 129.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 660.5)&quot; d=&quot;M 0 0 L 129.271240234375 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_pdbg6c =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;81.2 748.5 129.3 1.0&quot; &gt;&lt;path transform=&quot;translate(81.23, 748.5)&quot; d=&quot;M 0 0 L 129.271240234375 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_n6misq =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;76.2 310.5 86.4 1.0&quot; &gt;&lt;path transform=&quot;translate(76.23, 310.5)&quot; d=&quot;M 0 0 L 86.38180541992188 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+</pre>
+</body>
+</html>

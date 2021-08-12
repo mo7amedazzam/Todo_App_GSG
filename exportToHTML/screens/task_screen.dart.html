@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>task_screen.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+task_screen.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">// import 'package:app2_gsg/database/database_user.dart';</span>
+<span class="s0">// import 'package:app2_gsg/screens/home_screen.dart';</span>
+<span class="s0">// import 'package:flutter/material.dart';</span>
+<span class="s0">// import 'package:adobe_xd/pinned.dart';</span>
+<span class="s0">// import 'package.dart:flutter_svg/flutter_svg.dart';</span>
+<span class="s0">//</span>
+<span class="s0">// class TaskScreen extends StatefulWidget {</span>
+<span class="s0">//</span>
+<span class="s0">//   @override</span>
+<span class="s0">//   _TaskScreenState createState() =&gt; _TaskScreenState();</span>
+<span class="s0">// }</span>
+<span class="s0">//</span>
+<span class="s0">// class _TaskScreenState extends State&lt;TaskScreen&gt; {</span>
+<span class="s0">//   TextEditingController _textEditingController = new TextEditingController();</span>
+<span class="s0">//   var db = DatabaseHelper();</span>
+<span class="s0">//   final List&lt;Home_Screen&gt; _itemsList = &lt;Home_Screen&gt;[];</span>
+<span class="s0">//</span>
+<span class="s0">//   // int _id;</span>
+<span class="s0">//   // String get itemName =&gt; widget._itemName;</span>
+<span class="s0">//</span>
+<span class="s0">//</span>
+<span class="s0">//   @override</span>
+<span class="s0">//   void initState() {</span>
+<span class="s0">//     super.initState();</span>
+<span class="s0">//     _readTodoList();</span>
+<span class="s0">//   }</span>
+<span class="s0">//</span>
+<span class="s0">//</span>
+<span class="s0">//   // Map&lt;String,dynamic&gt; toMap(){</span>
+<span class="s0">//   //   var map = new Map&lt;String,dynamic&gt;();</span>
+<span class="s0">//   //   map[&quot;itemName&quot;] = widget._itemName;</span>
+<span class="s0">//   //   // if(_id != null){</span>
+<span class="s0">//   //   //   map[&quot;id&quot;] = _id;</span>
+<span class="s0">//   //   // }</span>
+<span class="s0">//   //   // return map;</span>
+<span class="s0">//   // }</span>
+<span class="s0">//</span>
+<span class="s0">//   @override</span>
+<span class="s0">//   Widget build(BuildContext context) {</span>
+<span class="s0">//     return Scaffold(</span>
+<span class="s0">//       backgroundColor: const Color(0xffffffff),</span>
+<span class="s0">//       body: Stack(</span>
+<span class="s0">//         children: &lt;Widget&gt;[</span>
+<span class="s0">//</span>
+<span class="s0">//           Container(</span>
+<span class="s0">//       margin: const EdgeInsets.all(8.0),</span>
+<span class="s0">//       child: new Row(</span>
+<span class="s0">//         children: &lt;Widget&gt;[</span>
+<span class="s0">//       Column(</span>
+<span class="s0">//       crossAxisAlignment: CrossAxisAlignment.start,</span>
+<span class="s0">//         children: &lt;Widget&gt;[</span>
+<span class="s0">//           Text(</span>
+<span class="s0">//             widget._itemName,</span>
+<span class="s0">//             style: TextStyle(</span>
+<span class="s0">//                 color: Colors.black54,</span>
+<span class="s0">//                 fontWeight: FontWeight.bold,</span>
+<span class="s0">//                 fontSize: 16.9),</span>
+<span class="s0">//           ),</span>
+<span class="s0">//           new Container(</span>
+<span class="s0">//             margin: const EdgeInsets.only(top: 5.0),</span>
+<span class="s0">//             child: Text(</span>
+<span class="s0">//               &quot;&quot;,</span>
+<span class="s0">//               style: TextStyle(</span>
+<span class="s0">//                   color: Colors.blueGrey,</span>
+<span class="s0">//                   fontSize: 13.5,</span>
+<span class="s0">//                   fontStyle: FontStyle.italic</span>
+<span class="s0">//               ),</span>
+<span class="s0">//             ),</span>
+<span class="s0">//           ),</span>
+<span class="s0">//           Container(),</span>
+<span class="s0">//           Container(),</span>
+<span class="s0">//           Container(),</span>
+<span class="s0">//           Container(),</span>
+<span class="s0">//</span>
+<span class="s0">//           Container(),</span>
+<span class="s0">//           Container(),</span>
+<span class="s0">//           Container(),</span>
+<span class="s0">//         ],</span>
+<span class="s0">//       ),</span>
+<span class="s0">//       ]</span>
+<span class="s0">//       )</span>
+<span class="s0">//</span>
+<span class="s0">//     ),</span>
+<span class="s0">//         ]</span>
+<span class="s0">//     )</span>
+<span class="s0">//     );</span>
+<span class="s0">//   }</span>
+<span class="s0">// }</span>
+<span class="s0">//</span>
+<span class="s0">// const String _svg_psdxpl =</span>
+<span class="s0">//     '&lt;svg viewBox=&quot;76.2 281.5 258.3 1.0&quot; &gt;&lt;path transform=&quot;translate(76.23, 281.5)&quot; d=&quot;M 0 0 L 258.2711791992188 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;';</span>
+<span class="s0">// const String _svg_n6misq =</span>
+<span class="s0">//     '&lt;svg viewBox=&quot;76.2 310.5 86.4 1.0&quot; &gt;&lt;path transform=&quot;translate(76.23, 310.5)&quot; d=&quot;M 0 0 L 86.38180541992188 0&quot; fill=&quot;none&quot; stroke=&quot;#fe4775&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;';</span>
+</pre>
+</body>
+</html>

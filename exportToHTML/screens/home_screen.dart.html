@@ -1,0 +1,265 @@
+<html>
+<head>
+<title>home_screen.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #6897bb;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+home_screen.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'package:app2_gsg/customTextfield/Custom_TextField.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:app2_gsg/helper/sharedprefrences_helper.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:app2_gsg/main.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:app2_gsg/screens/task_user.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:flutter/cupertino.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:flutter/material.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:adobe_xd/pinned.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:flutter_svg/flutter_svg.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:shared_preferences/shared_preferences.dart'</span><span class="s2">;</span>
+
+<span class="s0">import </span><span class="s1">'add_task_screen.dart'</span><span class="s2">;</span>
+
+<span class="s2">class </span><span class="s0">Home_Screen </span><span class="s2">extends </span><span class="s0">StatefulWidget {</span>
+  <span class="s0">Home_Screen({</span>
+    <span class="s0">Key key</span><span class="s2">,</span>
+  <span class="s0">}) : </span><span class="s2">super</span><span class="s0">(key: key)</span><span class="s2">;</span>
+
+  <span class="s0">@override</span>
+  <span class="s0">_Home_ScreenState createState() =&gt; _Home_ScreenState()</span><span class="s2">;</span>
+<span class="s0">}</span>
+
+<span class="s2">class </span><span class="s0">_Home_ScreenState </span><span class="s2">extends </span><span class="s0">State&lt;Home_Screen&gt; {</span>
+  <span class="s0">String value = </span><span class="s1">&quot;&quot;</span><span class="s2">;</span>
+
+  <span class="s0">TextEditingController controller = TextEditingController()</span><span class="s2">;</span>
+  <span class="s0">TextEditingController emailcontroller = TextEditingController()</span><span class="s2">;</span>
+  <span class="s0">TextEditingController passwordcontroller = TextEditingController()</span><span class="s2">;</span>
+
+  <span class="s0">bool isObsecure = </span><span class="s2">false;</span>
+  <span class="s0">String email = </span><span class="s1">&quot;&quot;</span><span class="s2">;</span>
+  <span class="s0">String password = </span><span class="s1">&quot;&quot;</span><span class="s2">;</span>
+
+  <span class="s0">@override</span>
+  <span class="s0">Widget build(BuildContext context) {</span>
+    <span class="s2">return </span><span class="s0">Scaffold(</span>
+      <span class="s0">appBar: AppBar(</span>
+        <span class="s0">title: Text(</span><span class="s1">&quot;TODO App&quot;</span><span class="s0">)</span><span class="s2">,</span>
+      <span class="s0">)</span><span class="s2">,</span>
+      <span class="s0">backgroundColor: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0xfffe4775</span><span class="s0">)</span><span class="s2">,</span>
+      <span class="s0">body: Stack(children: [</span>
+        <span class="s4">// Image.asset(&quot;assets/image/background.png&quot;,),</span>
+
+        <span class="s0">Pinned.fromPins(</span>
+          <span class="s0">Pin(size: </span><span class="s3">230.0</span><span class="s2">, </span><span class="s0">start: </span><span class="s3">41.0</span><span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">Pin(size: </span><span class="s3">350.0</span><span class="s2">, </span><span class="s0">middle: </span><span class="s3">0.5977</span><span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">child: SingleChildScrollView(</span>
+              <span class="s0">child: Text(</span>
+            <span class="s1">'Hello there,Welcome Onboard!'</span><span class="s2">,</span>
+            <span class="s0">style: TextStyle(</span>
+              <span class="s0">fontFamily: </span><span class="s1">'Avenir LT Std'</span><span class="s2">,</span>
+              <span class="s0">fontSize: </span><span class="s3">32</span><span class="s2">,</span>
+              <span class="s0">color: </span><span class="s2">const </span><span class="s0">Color(</span><span class="s3">0xfffefdfd</span><span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">letterSpacing: </span><span class="s3">0.48</span><span class="s2">,</span>
+              <span class="s0">fontWeight: FontWeight.w500</span><span class="s2">,</span>
+              <span class="s0">height: </span><span class="s3">1.28125</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">textHeightBehavior:</span>
+                <span class="s0">TextHeightBehavior(applyHeightToFirstAscent: </span><span class="s2">false</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">textAlign: TextAlign.left</span><span class="s2">,</span>
+          <span class="s0">))</span><span class="s2">,</span>
+        <span class="s0">)</span><span class="s2">,</span>
+        <span class="s0">Container(</span>
+          <span class="s0">margin: EdgeInsets.only(top: </span><span class="s3">320</span><span class="s2">, </span><span class="s0">left: </span><span class="s3">15</span><span class="s2">, </span><span class="s0">right: </span><span class="s3">15</span><span class="s2">, </span><span class="s0">bottom: </span><span class="s3">10</span><span class="s0">)</span><span class="s2">,</span>
+          <span class="s4">//padding: EdgeInsets.only(top: 10,left: 15,right: 15,bottom: 15),</span>
+          <span class="s0">child: SingleChildScrollView(</span>
+            <span class="s0">child: SingleChildScrollView(</span>
+              <span class="s0">child: Column(</span>
+                <span class="s0">crossAxisAlignment: CrossAxisAlignment.stretch</span><span class="s2">,</span>
+                <span class="s0">children: [</span>
+                  <span class="s0">CustomTextField(</span><span class="s1">&quot;Email&quot;</span><span class="s2">, </span><span class="s0">emailcontroller)</span><span class="s2">,</span>
+                  <span class="s0">CustomTextField(</span><span class="s1">&quot;Password&quot;</span><span class="s2">, </span><span class="s0">passwordcontroller)</span><span class="s2">,</span>
+
+                  <span class="s0">Padding(</span>
+                    <span class="s0">padding: EdgeInsets.all(</span><span class="s3">16.0</span><span class="s0">)</span><span class="s2">,</span>
+                    <span class="s0">child: Container(</span>
+                      <span class="s0">height: </span><span class="s3">60</span><span class="s2">,</span>
+                      <span class="s0">child: Builder(</span>
+                        <span class="s0">builder: (ctx) =&gt; ElevatedButton(</span>
+                          <span class="s0">style: ButtonStyle(</span>
+                              <span class="s0">backgroundColor: MaterialStateProperty.all&lt;Color&gt;(</span>
+                                  <span class="s0">Colors.white24)</span><span class="s2">,</span>
+                              <span class="s0">shape: MaterialStateProperty.all&lt;</span>
+                                      <span class="s0">RoundedRectangleBorder&gt;(</span>
+                                  <span class="s0">RoundedRectangleBorder(</span>
+                                      <span class="s0">borderRadius: BorderRadius.circular(</span><span class="s3">18.0</span><span class="s0">)</span><span class="s2">,</span>
+                                      <span class="s0">side: BorderSide(color: Colors.red))))</span><span class="s2">,</span>
+                          <span class="s0">child: Text(</span>
+                            <span class="s1">'Sign In'</span><span class="s2">,</span>
+                            <span class="s0">style: TextStyle(</span>
+                                <span class="s0">color: Colors.white</span><span class="s2">,</span>
+                                <span class="s0">fontWeight: FontWeight.bold</span><span class="s2">,</span>
+                                <span class="s0">fontSize: </span><span class="s3">25</span><span class="s0">)</span><span class="s2">,</span>
+                            <span class="s0">textAlign: TextAlign.center</span><span class="s2">,</span>
+                          <span class="s0">)</span><span class="s2">,</span>
+                          <span class="s0">onPressed: () async {</span>
+                            <span class="s0">SharedPreferences _prefs =</span>
+                                <span class="s0">await SharedPreferences.getInstance()</span><span class="s2">;</span>
+                            <span class="s0">_prefs.setString(</span><span class="s1">&quot;email&quot;</span><span class="s2">, </span><span class="s0">emailcontroller.text)</span><span class="s2">;</span>
+                            <span class="s0">_prefs.setString(</span>
+                                <span class="s1">&quot;password&quot;</span><span class="s2">, </span><span class="s0">passwordcontroller.text)</span><span class="s2">;</span>
+
+                            <span class="s0">Navigator.of(context).push(MaterialPageRoute(builder: (context){</span>
+                              <span class="s2">return </span><span class="s0">TaskUser()</span><span class="s2">;</span>
+                            <span class="s0">})</span>
+                            <span class="s0">)</span><span class="s2">;</span>
+                          <span class="s0">}</span><span class="s2">,</span>
+                        <span class="s0">)</span><span class="s2">,</span>
+                      <span class="s0">)</span><span class="s2">,</span>
+                    <span class="s0">)</span><span class="s2">,</span>
+                  <span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">]</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+        <span class="s0">)</span><span class="s2">,</span>
+      <span class="s0">])</span><span class="s2">,</span>
+    <span class="s0">)</span><span class="s2">;</span>
+    <span class="s4">//   ),</span>
+    <span class="s4">// );</span>
+  <span class="s0">}</span>
+
+<span class="s0">}</span>
+
+<span class="s2">const </span><span class="s0">String _svg_3q4wtx =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;0.0 0.0 14.2 13.9&quot; &gt;&lt;path transform=&quot;translate(-259.56, -223.63)&quot; d=&quot;M 273.7814025878906 226.6650695800781 C 273.7814025878906 225.6145935058594 273.6872253417969 224.6045837402344 273.5120239257812 223.6349792480469 L 259.5599975585938 223.6349792480469 L 259.5599975585938 229.3652038574219 L 267.5326232910156 229.3652038574219 C 267.1891784667969 231.2170104980469 266.1454467773438 232.7859191894531 264.5766296386719 233.83642578125 L 264.5766296386719 237.5533142089844 L 269.3641357421875 237.5533142089844 C 272.1653747558594 234.9743347167969 273.7814025878906 231.1766357421875 273.7814025878906 226.6650695800781 L 273.7814025878906 226.6650695800781 L 273.7814025878906 226.6650695800781 Z M 273.7814025878906 226.6650695800781&quot; fill=&quot;none&quot; stroke=&quot;none&quot; stroke-width=&quot;1&quot; stroke-miterlimit=&quot;10&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_tw32t3 =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;0.0 0.0 23.0 12.0&quot; &gt;&lt;path transform=&quot;translate(-100.48, -289.82)&quot; d=&quot;M 113.7212677001953 301.8212890625 C 117.7210235595703 301.8212890625 121.0744323730469 300.4947814941406 123.5254058837891 298.2322998046875 L 118.7378845214844 294.515380859375 C 117.4112930297852 295.4041748046875 115.7144470214844 295.9294738769531 113.7212677001953 295.9294738769531 C 109.8628845214844 295.9294738769531 106.5970306396484 293.3235168457031 105.4322128295898 289.8219909667969 L 100.4830017089844 289.8219909667969 L 100.4830017089844 293.6602478027344 C 102.9205780029297 298.5016784667969 107.930290222168 301.8212890625 113.7212677001953 301.8212890625 L 113.7212677001953 301.8212890625 L 113.7212677001953 301.8212890625 Z M 113.7212677001953 301.8212890625&quot; fill=&quot;none&quot; stroke=&quot;none&quot; stroke-width=&quot;1&quot; stroke-miterlimit=&quot;10&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_son9z7 =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;0.0 0.0 6.5 13.3&quot; &gt;&lt;path transform=&quot;translate(-81.55, -176.06)&quot; d=&quot;M 88.07389068603516 185.5244293212891 C 87.77754211425781 184.6356658935547 87.60919189453125 183.6862030029297 87.60919189453125 182.7097930908203 C 87.60919189453125 181.7334747314453 87.77754211425781 180.7840118408203 88.07389068603516 179.8951568603516 L 88.07389068603516 176.0570068359375 L 83.12467193603516 176.0570068359375 C 82.12138366699219 178.0569305419922 81.54900360107422 180.3193206787109 81.54900360107422 182.7097930908203 C 81.54900360107422 185.1002655029297 82.12138366699219 187.3627471923828 83.12467193603516 189.3626708984375 L 88.07389068603516 185.5244293212891 L 88.07389068603516 185.5244293212891 L 88.07389068603516 185.5244293212891 Z M 88.07389068603516 185.5244293212891&quot; fill=&quot;none&quot; stroke=&quot;none&quot; stroke-width=&quot;1&quot; stroke-miterlimit=&quot;10&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+<span class="s2">const </span><span class="s0">String _svg_bmn7o5 =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;0.0 0.0 23.2 12.0&quot; &gt;&lt;path transform=&quot;translate(-100.48, -77.99)&quot; d=&quot;M 113.7212677001953 83.88092041015625 C 115.8962020874023 83.88092041015625 117.8490219116211 84.62839508056641 119.3842468261719 86.09629821777344 L 123.633171081543 81.84737396240234 C 121.0676879882812 79.45690155029297 117.7142868041992 77.98899841308594 113.7212677001953 77.98899841308594 C 107.930290222168 77.98899841308594 102.9205780029297 81.30869293212891 100.4830017089844 86.15013885498047 L 105.4322128295898 89.98828887939453 C 106.5970306396484 86.48676300048828 109.8628845214844 83.88092041015625 113.7212677001953 83.88092041015625 L 113.7212677001953 83.88092041015625 L 113.7212677001953 83.88092041015625 Z M 113.7212677001953 83.88092041015625&quot; fill=&quot;none&quot; stroke=&quot;none&quot; stroke-width=&quot;1&quot; stroke-miterlimit=&quot;10&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+
+<span class="s4">//             Pinned.fromPins(</span>
+<span class="s4">//               Pin(start: -8.2, end: -8.2),</span>
+<span class="s4">//               Pin(start: -8.2, end: -8.2),</span>
+<span class="s4">//               child: Container(</span>
+<span class="s4">//                 color: const Color(0xff3e82f1),</span>
+<span class="s4">//               ),</span>
+<span class="s4">//             ),</span>
+<span class="s4">//             Pinned.fromPins(</span>
+<span class="s4">//               Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//               Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//               child: SvgPicture.string(</span>
+<span class="s4">//                 _svg_3q4wtx,</span>
+<span class="s4">//                 allowDrawingOutsideViewBox: true,</span>
+<span class="s4">//                 fit: BoxFit.fill,</span>
+<span class="s4">//               ),</span>
+<span class="s4">//             ),</span>
+<span class="s4">//           ],</span>
+<span class="s4">//         ),</span>
+<span class="s4">//       ),</span>
+<span class="s4">//     ],</span>
+<span class="s4">//   ),</span>
+<span class="s4">// ),</span>
+<span class="s4">// Pinned.fromPins(</span>
+<span class="s4">//   Pin(size: 23.0, start: 1.6),</span>
+<span class="s4">//   Pin(size: 12.0, end: 0.0),</span>
+<span class="s4">//   child: Stack(</span>
+<span class="s4">//     children: &lt;Widget&gt;[</span>
+<span class="s4">//       Pinned.fromPins(</span>
+<span class="s4">//         Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//         Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//         child: Stack(</span>
+<span class="s4">//           children: &lt;Widget&gt;[</span>
+<span class="s4">//             Pinned.fromPins(</span>
+<span class="s4">//               Pin(start: -8.2, end: -8.2),</span>
+<span class="s4">//               Pin(start: -8.2, end: -8.2),</span>
+<span class="s4">//               child: Container(</span>
+<span class="s4">//                 color: const Color(0xff32a753),</span>
+<span class="s4">//               ),</span>
+<span class="s4">//             ),</span>
+<span class="s4">//             Pinned.fromPins(</span>
+<span class="s4">//               Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//               Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//               child: SvgPicture.string(</span>
+<span class="s4">//                 _svg_tw32t3,</span>
+<span class="s4">//                 allowDrawingOutsideViewBox: true,</span>
+<span class="s4">//                 fit: BoxFit.fill,</span>
+<span class="s4">//               ),</span>
+<span class="s4">//             ),</span>
+<span class="s4">//           ],</span>
+<span class="s4">//         ),</span>
+<span class="s4">//       ),</span>
+<span class="s4">//     ],</span>
+<span class="s4">//   ),</span>
+<span class="s4">// ),</span>
+<span class="s4">// Pinned.fromPins(</span>
+<span class="s4">//   Pin(size: 6.5, start: 0.0),</span>
+<span class="s4">//   Pin(size: 13.3, middle: 0.5),</span>
+<span class="s4">//   child: Stack(</span>
+<span class="s4">//     children: &lt;Widget&gt;[</span>
+<span class="s4">//       Pinned.fromPins(</span>
+<span class="s4">//         Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//         Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//         child: Stack(</span>
+<span class="s4">//           children: &lt;Widget&gt;[</span>
+<span class="s4">//             Pinned.fromPins(</span>
+<span class="s4">//               Pin(start: -8.2, end: -8.2),</span>
+<span class="s4">//               Pin(start: -8.2, end: -8.2),</span>
+<span class="s4">//               child: Container(</span>
+<span class="s4">//                 color: const Color(0xfff9bb00),</span>
+<span class="s4">//               ),</span>
+<span class="s4">//             ),</span>
+<span class="s4">//             Pinned.fromPins(</span>
+<span class="s4">//               Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//               Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//               child: SvgPicture.string(</span>
+<span class="s4">//                 _svg_son9z7,</span>
+<span class="s4">//                 allowDrawingOutsideViewBox: true,</span>
+<span class="s4">//                 fit: BoxFit.fill,</span>
+<span class="s4">//               ),</span>
+<span class="s4">//             ),</span>
+<span class="s4">//           ],</span>
+<span class="s4">//         ),</span>
+<span class="s4">//       ),</span>
+<span class="s4">//     ],</span>
+<span class="s4">//   ),</span>
+<span class="s4">// ),</span>
+<span class="s4">// Pinned.fromPins(</span>
+<span class="s4">//   Pin(start: 1.6, end: 4.3),</span>
+<span class="s4">//   Pin(size: 12.0, start: 0.0),</span>
+<span class="s4">//   child: Stack(</span>
+<span class="s4">//     children: &lt;Widget&gt;[</span>
+<span class="s4">//       Pinned.fromPins(</span>
+<span class="s4">//         Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//         Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//         child: Stack(</span>
+<span class="s4">//           children: &lt;Widget&gt;[</span>
+<span class="s4">//             Pinned.fromPins(</span>
+<span class="s4">//               Pin(start: -8.2, end: -8.2),</span>
+<span class="s4">//               Pin(start: -8.2, end: -8.2),</span>
+<span class="s4">//               child: Container(</span>
+<span class="s4">//                 color: const Color(0xffe74133),</span>
+<span class="s4">//               ),</span>
+<span class="s4">//             ),</span>
+<span class="s4">//             Pinned.fromPins(</span>
+<span class="s4">//               Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//               Pin(start: 0.0, end: 0.0),</span>
+<span class="s4">//               child: SvgPicture.string(</span>
+<span class="s4">//                 _svg_bmn7o5,</span>
+<span class="s4">//                 allowDrawingOutsideViewBox: true,</span>
+<span class="s4">//                 fit: BoxFit.fill,</span>
+<span class="s4">//               ),</span>
+<span class="s4">//             ),</span>
+</pre>
+</body>
+</html>

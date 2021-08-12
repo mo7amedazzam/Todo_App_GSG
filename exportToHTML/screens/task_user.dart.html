@@ -1,0 +1,142 @@
+<html>
+<head>
+<title>task_user.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #808080;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+task_user.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'package:app2_gsg/database/database_user.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:app2_gsg/models/user_task.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:app2_gsg/screens/add_task_screen.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:flutter/cupertino.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:flutter/material.dart'</span><span class="s2">;</span>
+
+<span class="s2">class </span><span class="s0">TaskUser </span><span class="s2">extends </span><span class="s0">StatefulWidget {</span>
+  <span class="s3">// TaskUser({</span>
+  <span class="s3">//   Key key,</span>
+  <span class="s3">// }) : super(key: key);</span>
+
+  <span class="s0">@override</span>
+  <span class="s0">__TaskUserState createState() =&gt; __TaskUserState()</span><span class="s2">;</span>
+<span class="s0">}</span>
+
+<span class="s2">class </span><span class="s0">__TaskUserState </span><span class="s2">extends </span><span class="s0">State&lt;TaskUser&gt; {</span>
+  <span class="s0">Future&lt;List&lt;Task&gt;&gt; _taskList</span><span class="s2">;</span>
+
+  <span class="s0">@override</span>
+  <span class="s2">void </span><span class="s0">initState() {</span>
+    <span class="s2">super</span><span class="s0">.initState()</span><span class="s2">;</span>
+    <span class="s0">_updateTaskList()</span><span class="s2">;</span>
+  <span class="s0">}</span>
+
+  <span class="s0">_updateTaskList() {</span>
+    <span class="s0">setState(() {</span>
+      <span class="s0">_taskList = DatabaseHelper.instance.getTaskList()</span><span class="s2">;</span>
+    <span class="s0">})</span><span class="s2">;</span>
+  <span class="s0">}</span>
+
+  <span class="s0">Widget _buildTask(Task task) {</span>
+    <span class="s2">return </span><span class="s0">Padding(</span>
+      <span class="s0">padding: EdgeInsets.symmetric(horizontal: </span><span class="s4">25</span><span class="s0">)</span><span class="s2">,</span>
+      <span class="s0">child: Column(</span>
+        <span class="s0">children: &lt;Widget&gt;[</span>
+          <span class="s0">ListTile(</span>
+            <span class="s0">title: Text(</span>
+              <span class="s0">task.title</span><span class="s2">,</span>
+              <span class="s0">style: TextStyle(</span>
+                <span class="s0">fontSize: </span><span class="s4">18.0</span><span class="s2">,</span>
+                <span class="s0">decoration: task.status == </span><span class="s4">0</span>
+                    <span class="s0">? TextDecoration.none</span>
+                    <span class="s0">: TextDecoration.lineThrough</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">trailing: Checkbox(</span>
+              <span class="s0">onChanged: (value) {</span>
+                <span class="s0">task.status = value ? </span><span class="s4">1 </span><span class="s0">: </span><span class="s4">0</span><span class="s2">;</span>
+                <span class="s0">DatabaseHelper.instance.updateTask(task)</span><span class="s2">;</span>
+                <span class="s0">_updateTaskList()</span><span class="s2">;</span>
+              <span class="s0">}</span><span class="s2">,</span>
+              <span class="s0">activeColor: Colors.red</span><span class="s2">,</span>
+              <span class="s0">value: task.status == </span><span class="s4">1 </span><span class="s0">? </span><span class="s2">true </span><span class="s0">: </span><span class="s2">false,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">onTap: () =&gt; Navigator.push(</span>
+              <span class="s0">context</span><span class="s2">,</span>
+              <span class="s0">MaterialPageRoute(</span>
+                <span class="s0">builder: (_) =&gt; Add_Task_Screen(</span>
+                  <span class="s0">updateTaskList: _updateTaskList</span><span class="s2">,</span>
+                  <span class="s0">task: task</span><span class="s2">,</span>
+                <span class="s0">)</span><span class="s2">,</span>
+              <span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+        <span class="s0">]</span><span class="s2">,</span>
+      <span class="s0">)</span><span class="s2">,</span>
+    <span class="s0">)</span><span class="s2">;</span>
+  <span class="s0">}</span>
+
+  <span class="s0">@override</span>
+  <span class="s0">Widget build(BuildContext context) {</span>
+    <span class="s2">return </span><span class="s0">Scaffold(</span>
+      <span class="s0">floatingActionButton: FloatingActionButton(</span>
+        <span class="s0">backgroundColor: Colors.white</span><span class="s2">,</span>
+        <span class="s0">child: Icon(Icons.add</span><span class="s2">, </span><span class="s0">color: Colors.red)</span><span class="s2">,</span>
+        <span class="s0">onPressed: () =&gt; Navigator.push(</span>
+          <span class="s0">context</span><span class="s2">,</span>
+          <span class="s0">MaterialPageRoute(</span>
+            <span class="s0">builder: (_) =&gt; Add_Task_Screen(</span>
+              <span class="s0">updateTaskList: _updateTaskList</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+        <span class="s0">)</span><span class="s2">,</span>
+      <span class="s0">)</span><span class="s2">,</span>
+      <span class="s0">body: FutureBuilder(</span>
+        <span class="s0">future: _taskList</span><span class="s2">,</span>
+        <span class="s0">builder: (context</span><span class="s2">, </span><span class="s0">snapshot) {</span>
+          <span class="s2">if </span><span class="s0">(!snapshot.hasData) {</span>
+            <span class="s2">return </span><span class="s0">Center(</span>
+              <span class="s0">child: CircularProgressIndicator()</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">;</span>
+          <span class="s0">}</span>
+
+          <span class="s2">return </span><span class="s0">ListView.builder(</span>
+            <span class="s0">padding: EdgeInsets.symmetric(vertical: </span><span class="s4">80</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">itemCount: </span><span class="s4">1 </span><span class="s0">+ snapshot.data.length</span><span class="s2">,</span>
+            <span class="s0">itemBuilder: (BuildContext context</span><span class="s2">, </span><span class="s0">int index) {</span>
+              <span class="s2">if </span><span class="s0">(index == </span><span class="s4">0</span><span class="s0">) {</span>
+                <span class="s2">return </span><span class="s0">Padding(</span>
+                  <span class="s0">padding: EdgeInsets.symmetric(horizontal: </span><span class="s4">40</span><span class="s2">, </span><span class="s0">vertical: </span><span class="s4">20</span><span class="s0">)</span><span class="s2">,</span>
+                  <span class="s0">child: Column(</span>
+                    <span class="s0">crossAxisAlignment: CrossAxisAlignment.start</span><span class="s2">,</span>
+                    <span class="s0">children: [</span>
+                      <span class="s0">Text(</span>
+                        <span class="s1">&quot;Tasks&quot;</span><span class="s2">,</span>
+                        <span class="s0">style: TextStyle(</span>
+                          <span class="s0">fontSize: </span><span class="s4">40</span><span class="s2">,</span>
+                        <span class="s0">)</span><span class="s2">,</span>
+                      <span class="s0">)</span><span class="s2">,</span>
+                    <span class="s0">]</span><span class="s2">,</span>
+                  <span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">)</span><span class="s2">;</span>
+              <span class="s0">}</span>
+              <span class="s2">return </span><span class="s0">_buildTask(snapshot.data[index - </span><span class="s4">1</span><span class="s0">])</span><span class="s2">;</span>
+            <span class="s0">}</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">;</span>
+        <span class="s0">}</span><span class="s2">,</span>
+      <span class="s0">)</span><span class="s2">,</span>
+    <span class="s0">)</span><span class="s2">;</span>
+  <span class="s0">}</span>
+<span class="s0">}</span>
+</pre>
+</body>
+</html>

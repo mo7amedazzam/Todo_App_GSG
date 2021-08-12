@@ -1,0 +1,249 @@
+<html>
+<head>
+<title>add_task_screen.dart</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #a9b7c6;}
+.s1 { color: #6a8759;}
+.s2 { color: #cc7832;}
+.s3 { color: #808080;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+add_task_screen.dart</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">'package:app2_gsg/database/database_user.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:app2_gsg/models/user_task.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:flutter/cupertino.dart'</span><span class="s2">;</span>
+<span class="s0">import </span><span class="s1">'package:flutter/material.dart'</span><span class="s2">;</span>
+
+<span class="s2">class </span><span class="s0">Add_Task_Screen </span><span class="s2">extends </span><span class="s0">StatefulWidget {</span>
+  <span class="s2">final </span><span class="s0">Function updateTaskList</span><span class="s2">;</span>
+  <span class="s2">final </span><span class="s0">Task task</span><span class="s2">;</span>
+
+  <span class="s0">Add_Task_Screen({</span><span class="s2">this</span><span class="s0">.updateTaskList</span><span class="s2">, this</span><span class="s0">.task})</span><span class="s2">;</span>
+
+  <span class="s3">// Add_Task_Screen({</span>
+  <span class="s3">//   Key key,</span>
+  <span class="s3">// }) : super(key: key);</span>
+
+  <span class="s0">@override</span>
+  <span class="s0">_Add_Task_ScreenState createState() =&gt; _Add_Task_ScreenState()</span><span class="s2">;</span>
+<span class="s0">}</span>
+
+<span class="s2">class </span><span class="s0">_Add_Task_ScreenState </span><span class="s2">extends </span><span class="s0">State&lt;Add_Task_Screen&gt; {</span>
+  <span class="s2">final </span><span class="s0">_formKey = GlobalKey&lt;FormState&gt;()</span><span class="s2">;</span>
+  <span class="s3">// ignore: non_constant_identifier_names</span>
+  <span class="s0">String EnterTask</span><span class="s2">;</span>
+  <span class="s0">String _title = </span><span class="s1">''</span><span class="s2">;</span>
+
+  <span class="s0">@override</span>
+  <span class="s2">void </span><span class="s0">initState() {</span>
+    <span class="s2">super</span><span class="s0">.initState()</span><span class="s2">;</span>
+
+    <span class="s2">if </span><span class="s0">(widget.task != </span><span class="s2">null</span><span class="s0">) {</span>
+      <span class="s0">_title = widget.task.title</span><span class="s2">;</span>
+      <span class="s0">setState(() {</span>
+      <span class="s0">})</span><span class="s2">;</span>
+    <span class="s0">}</span>
+  <span class="s0">}</span>
+
+  <span class="s0">_delete(){</span>
+    <span class="s0">DatabaseHelper.instance.deleteTask(widget.task.id)</span><span class="s2">;</span>
+    <span class="s0">widget.updateTaskList()</span><span class="s2">;</span>
+    <span class="s0">Navigator.pop(context)</span><span class="s2">;</span>
+  <span class="s0">}</span>
+
+  <span class="s0">_submit() {</span>
+    <span class="s2">if </span><span class="s0">(_formKey.currentState.validate()) {</span>
+      <span class="s0">_formKey.currentState.save()</span><span class="s2">;</span>
+      <span class="s0">print(</span><span class="s1">'</span><span class="s0">$_title</span><span class="s1">'</span><span class="s0">)</span><span class="s2">;</span>
+
+      <span class="s3">//insert task user's database</span>
+      <span class="s0">Task task = Task(title: _title)</span><span class="s2">;</span>
+      <span class="s2">if </span><span class="s0">(widget.task == </span><span class="s2">null</span><span class="s0">) {</span>
+        <span class="s0">task.status = </span><span class="s4">0</span><span class="s2">;</span>
+        <span class="s0">DatabaseHelper.instance.insertTask(task)</span><span class="s2">;</span>
+      <span class="s0">} </span><span class="s2">else </span><span class="s0">{</span>
+        <span class="s0">task.id = widget.task.id</span><span class="s2">;</span>
+        <span class="s0">task.status = widget.task.status</span><span class="s2">;</span>
+        <span class="s0">DatabaseHelper.instance.updateTask(task)</span><span class="s2">;</span>
+      <span class="s0">}</span>
+      <span class="s0">widget.updateTaskList()</span><span class="s2">;</span>
+      <span class="s0">Navigator.pop(context)</span><span class="s2">;</span>
+    <span class="s0">}</span>
+  <span class="s0">}</span>
+  <span class="s0">@override</span>
+  <span class="s0">Widget build(BuildContext context) {</span>
+    <span class="s2">return </span><span class="s0">Scaffold(</span>
+      <span class="s0">backgroundColor: Colors.white</span><span class="s2">,</span>
+      <span class="s0">body: GestureDetector(</span>
+        <span class="s0">onTap: () =&gt; FocusScope.of(context).unfocus()</span><span class="s2">,</span>
+        <span class="s0">child: SingleChildScrollView(</span>
+          <span class="s0">child: Container(</span>
+            <span class="s0">padding: EdgeInsets.symmetric(horizontal: </span><span class="s4">1</span><span class="s2">, </span><span class="s0">vertical: </span><span class="s4">40</span><span class="s0">)</span><span class="s2">,</span>
+            <span class="s0">child: Column(</span>
+              <span class="s0">crossAxisAlignment: CrossAxisAlignment.start</span><span class="s2">,</span>
+              <span class="s0">children: &lt;Widget&gt;[</span>
+                <span class="s0">GestureDetector(</span>
+                  <span class="s0">onTap: () =&gt; Navigator.pop(context)</span><span class="s2">,</span>
+                  <span class="s0">child: Icon(</span>
+                    <span class="s0">Icons.arrow_forward_ios</span><span class="s2">,</span>
+                    <span class="s0">size: </span><span class="s4">30</span><span class="s2">,</span>
+                    <span class="s0">color: Theme.of(context).primaryColor</span><span class="s2">,</span>
+                  <span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">SizedBox(height: </span><span class="s4">2</span><span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">Text(</span>
+                  <span class="s0">widget.task == </span><span class="s2">null </span><span class="s0">? </span><span class="s1">'Add new' </span><span class="s0">: </span><span class="s1">'Update '</span><span class="s2">,</span>
+                  <span class="s0">textAlign: TextAlign.start</span><span class="s2">,</span>
+                  <span class="s0">style: TextStyle(fontSize: </span><span class="s4">40</span><span class="s2">, </span><span class="s0">color: Colors.black)</span><span class="s2">,</span>
+                <span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">SizedBox(height: </span><span class="s4">10</span><span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">Form(</span>
+                  <span class="s0">key: _formKey</span><span class="s2">,</span>
+                  <span class="s0">child: Column(</span>
+                    <span class="s3">// crossAxisAlignment: CrossAxisAlignment.center,</span>
+                    <span class="s3">// mainAxisAlignment: MainAxisAlignment.spaceBetween,</span>
+                    <span class="s0">children: [</span>
+                      <span class="s0">Padding(</span>
+                        <span class="s0">padding: EdgeInsets.symmetric(vertical: </span><span class="s4">150</span><span class="s0">)</span><span class="s2">,</span>
+                        <span class="s0">child: TextFormField(</span>
+                          <span class="s0">style: TextStyle(</span>
+                            <span class="s0">fontSize: </span><span class="s4">30</span><span class="s2">,</span>
+                            <span class="s0">color: Colors.grey</span><span class="s2">,</span>
+                          <span class="s0">)</span><span class="s2">,</span>
+                          <span class="s0">decoration: InputDecoration(</span>
+                            <span class="s0">labelText: </span><span class="s1">'Enter Task'</span><span class="s2">,</span>
+                            <span class="s0">labelStyle:</span>
+                                <span class="s0">TextStyle(fontSize: </span><span class="s4">35</span><span class="s2">, </span><span class="s0">color: Colors.grey)</span><span class="s2">,</span>
+                          <span class="s0">)</span><span class="s2">,</span>
+                          <span class="s0">validator: (input) =&gt; input.trim().isEmpty</span>
+                              <span class="s0">? </span><span class="s1">'Please enter a task title'</span>
+                              <span class="s0">: </span><span class="s2">null,</span>
+                          <span class="s0">onSaved: (input) =&gt; _title = input</span><span class="s2">,</span>
+                          <span class="s0">initialValue: _title</span><span class="s2">,</span>
+                        <span class="s0">)</span><span class="s2">,</span>
+                      <span class="s0">)</span><span class="s2">,</span>
+                      <span class="s0">Container(</span>
+                        <span class="s0">margin: EdgeInsets.symmetric(vertical: </span><span class="s4">142</span><span class="s0">)</span><span class="s2">,</span>
+                        <span class="s0">height: </span><span class="s4">60</span><span class="s2">,</span>
+                        <span class="s0">width: double.infinity</span><span class="s2">,</span>
+                        <span class="s0">decoration: BoxDecoration(</span>
+                          <span class="s0">color: Colors.red</span><span class="s2">,</span>
+                        <span class="s0">)</span><span class="s2">,</span>
+                        <span class="s0">child: FlatButton(</span>
+                          <span class="s0">child: Text(</span>
+                            <span class="s0">widget.task == </span><span class="s2">null </span><span class="s0">? </span><span class="s1">'Add Task' </span><span class="s0">: </span><span class="s1">'Update Task'</span><span class="s2">,</span>
+                            <span class="s0">style: TextStyle(fontSize: </span><span class="s4">25</span><span class="s2">, </span><span class="s0">color: Colors.white )</span><span class="s2">,</span>
+                          <span class="s0">)</span><span class="s2">,</span>
+                          <span class="s0">onPressed: _submit</span><span class="s2">,</span>
+                        <span class="s0">)</span><span class="s2">,</span>
+                      <span class="s0">)</span><span class="s2">,</span>
+                      <span class="s0">widget.task != </span><span class="s2">null </span><span class="s0">? Container(     margin: EdgeInsets.symmetric(vertical: </span><span class="s4">142</span><span class="s0">)</span><span class="s2">,</span>
+                        <span class="s0">height: </span><span class="s4">60</span><span class="s2">,</span>
+                        <span class="s0">width: double.infinity</span><span class="s2">,</span>
+                        <span class="s0">decoration: BoxDecoration(</span>
+                          <span class="s0">color: Colors.red</span><span class="s2">,</span>
+                        <span class="s0">)</span><span class="s2">,</span>
+                        <span class="s0">child: FlatButton(</span>
+                          <span class="s0">child: Text(</span>
+                            <span class="s1">'Delete'</span><span class="s2">,</span>
+                            <span class="s0">style: TextStyle(fontSize: </span><span class="s4">25</span><span class="s2">, </span><span class="s0">color: Colors.white)</span><span class="s2">,</span>
+                          <span class="s0">)</span><span class="s2">,</span>
+                          <span class="s0">onPressed: _delete</span><span class="s2">,</span>
+                        <span class="s0">)</span><span class="s2">,</span>
+                      <span class="s0">)</span>
+                         <span class="s0">: SizedBox.shrink()</span><span class="s2">,</span>
+                    <span class="s0">]</span><span class="s2">,</span>
+                  <span class="s0">)</span><span class="s2">,</span>
+                <span class="s0">)</span><span class="s2">,</span>
+
+                <span class="s3">// Container(</span>
+                <span class="s3">//   width: double.infinity,</span>
+                <span class="s3">//   //alignment: Alignment.bottomCenter,</span>
+                <span class="s3">//   child: Padding(</span>
+                <span class="s3">//     padding: EdgeInsets.only(top: 225),</span>
+                <span class="s3">//     child: Container(</span>
+                <span class="s3">//       height: 60,</span>
+                <span class="s3">//       child: Builder(</span>
+                <span class="s3">//         builder: (ctx) =&gt;</span>
+                <span class="s3">//             ElevatedButton(</span>
+                <span class="s3">//               style: ButtonStyle(</span>
+                <span class="s3">//                 backgroundColor:</span>
+                <span class="s3">//                 MaterialStateProperty.all&lt;Color&gt;(Colors.red),</span>
+                <span class="s3">//               ),</span>
+                <span class="s3">//               child: Text(</span>
+                <span class="s3">//                 widget.task == null</span>
+                <span class="s3">//                     ? 'Add Task'</span>
+                <span class="s3">//                     : 'Update Task',</span>
+                <span class="s3">//                 style: TextStyle(</span>
+                <span class="s3">//                     color: Colors.white,</span>
+                <span class="s3">//                     fontWeight: FontWeight.bold,</span>
+                <span class="s3">//                     fontSize: 25),</span>
+                <span class="s3">//               ),</span>
+                <span class="s3">//               onPressed: _submit,</span>
+                <span class="s3">//             ),</span>
+                <span class="s3">//       ),</span>
+                <span class="s3">//     ),</span>
+                <span class="s3">//   ),</span>
+                <span class="s3">// ),</span>
+              <span class="s0">]</span><span class="s2">,</span>
+            <span class="s0">)</span><span class="s2">,</span>
+          <span class="s0">)</span><span class="s2">,</span>
+          <span class="s3">// Container(</span>
+          <span class="s3">//   width: double.infinity,</span>
+          <span class="s3">//   //alignment: Alignment.bottomCenter,</span>
+          <span class="s3">//   child: Padding(</span>
+          <span class="s3">//     padding: EdgeInsets.only(top: 285),</span>
+          <span class="s3">//     child: Container(</span>
+          <span class="s3">//       height: 60,</span>
+          <span class="s3">//       child: Builder(</span>
+          <span class="s3">//         builder: (ctx) =&gt;</span>
+          <span class="s3">//             ElevatedButton(</span>
+          <span class="s3">//               style: ButtonStyle(</span>
+          <span class="s3">//                 backgroundColor:</span>
+          <span class="s3">//                 MaterialStateProperty.all&lt;Color&gt;(Colors.red),</span>
+          <span class="s3">//               ),</span>
+          <span class="s3">//               child: Text(</span>
+          <span class="s3">//                 'Add Task',</span>
+          <span class="s3">//                 style: TextStyle(</span>
+          <span class="s3">//                     color: Colors.white,</span>
+          <span class="s3">//                     fontWeight: FontWeight.bold,</span>
+          <span class="s3">//                     fontSize: 25),</span>
+          <span class="s3">//               ),</span>
+          <span class="s3">//               onPressed: /*() {*/</span>
+          <span class="s3">//               _submit,</span>
+          <span class="s3">//               // _handleSubmit(_textEditingController.text);</span>
+          <span class="s3">//               // Navigator.of(context).push(</span>
+          <span class="s3">//               //     MaterialPageRoute(builder: (context) {</span>
+          <span class="s3">//               //       return TaskUser();</span>
+          <span class="s3">//               //     }</span>
+          <span class="s3">//               //     ));</span>
+          <span class="s3">//               // Navigator.push(</span>
+          <span class="s3">//               //   context,</span>
+          <span class="s3">//               //   MaterialPageRoute(</span>
+          <span class="s3">//               //     builder: (_) =&gt; TaskUser(),</span>
+          <span class="s3">//               //   ),</span>
+          <span class="s3">//               // );</span>
+          <span class="s3">//</span>
+          <span class="s3">//             ),</span>
+          <span class="s3">//       ),</span>
+          <span class="s3">//     ),</span>
+          <span class="s3">//   ),</span>
+          <span class="s3">// ),</span>
+        <span class="s0">)</span><span class="s2">,</span>
+      <span class="s0">)</span><span class="s2">,</span>
+    <span class="s0">)</span><span class="s2">;</span>
+  <span class="s0">}</span>
+<span class="s0">}</span>
+
+<span class="s2">const </span><span class="s0">String _svg_6kiu9s =</span>
+    <span class="s1">'&lt;svg viewBox=&quot;27.0 377.9 426.0 3.0&quot; &gt;&lt;path transform=&quot;translate(27.0, 377.91)&quot; d=&quot;M 0 0 L 426 0 L 426 3 L 0 3 L 0 0 Z&quot; fill=&quot;#342d2f&quot; fill-opacity=&quot;0.38&quot; stroke=&quot;none&quot; stroke-width=&quot;1&quot; stroke-opacity=&quot;0.38&quot; stroke-miterlimit=&quot;4&quot; stroke-linecap=&quot;butt&quot; /&gt;&lt;/svg&gt;'</span><span class="s2">;</span>
+</pre>
+</body>
+</html>
